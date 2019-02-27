@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.tahmazyan.sample.model.User" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:paddingStart="17dp"
+        android:paddingTop="1.5dp"
+        android:paddingEnd="17dp"
+        android:paddingBottom="1.5dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/image_avatar"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:userAvatar="@{user.avatar}"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tv_username"
+            android:layout_width="0dp"
+            android:layout_marginStart="@dimen/material_padding"
+            android:layout_height="wrap_content"
+            android:text="@{'@' + user.userName}"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/image_avatar"
+            app:layout_constraintTop_toTopOf="@+id/image_avatar"
+            tools:text="\@dostory" />
+
+        <TextView
+            android:id="@+id/tv_fullname"
+            android:layout_width="0dp"
+            android:layout_marginStart="@dimen/material_padding"
+            android:layout_height="wrap_content"
+            android:text="@{user.fullName}"
+            app:layout_constraintBottom_toBottomOf="@id/image_avatar"
+            app:layout_constraintStart_toEndOf="@+id/image_avatar"
+            app:layout_constraintTop_toBottomOf="@id/tv_username"
+            tools:text="Daria Schevchenko" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
